@@ -1,0 +1,27 @@
+{
+  "name": "les-material-reservation",
+  "version": "1.0.0",
+  "description": "An API REST of material reservation.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon /src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SnzDev/les-material-reservation.git"
+  },
+  "author": "SnzDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SnzDev/les-material-reservation/issues"
+  },
+  "homepage": "https://github.com/SnzDev/les-material-reservation#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "sequelize-cli": "^5.5.1"
+  }
+}
