@@ -9,6 +9,12 @@ class User extends Model{
             password:DataTypes.STRING,
         },{sequelize});
     }
+    static associate(models){
+        this.hasMany(models.Rent, {
+            foreignKey: 'materialId',
+            as: 'material',
+        });
+    }
 }
 
 module.exports = User;

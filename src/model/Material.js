@@ -8,5 +8,11 @@ class Material extends Model {
             photo: DataTypes.STRING,
         },{ sequelize });
     }
+    static associate(models){
+        this.hasMany(models.Rent, {
+            foreignKey: 'userId',
+            as: 'user',
+        });
+    }
 }
 module.exports = Material;
