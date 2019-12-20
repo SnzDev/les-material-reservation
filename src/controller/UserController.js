@@ -1,13 +1,23 @@
 const User = require('../model/User');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     async store(req,res){
         const {name, registrationNumber, email, password} = req.body;
-        //console.log(name,registrationNumber,email,password);
-        const response = await User.create({name,registrationNumber,email,password});
-        //console.log(response);
+
+        try{   
+            const hashedPassword = await bcrypt.hash(password, 10);
+            //console.log(name,registrationNumber,email,password);
+            const response = await User.create({name,registrationNumber,email,password: hashedPassword});
+            //console.log(response);
+            return res.json(response);
+        }catch{
+            return res.status(500).send('Something wrong right here!');
+        }
+
         
-        return res.json(response);
+        
+        
     },
     async index(req,res){
         const response = await User.findAll();
