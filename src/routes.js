@@ -4,18 +4,24 @@ const routes = express.Router();
 const UserController = require('./controller/UserController');
 const MaterialController = require('./controller/MaterialController');
 const RentController = require('./controller/RentController');
+const SessionController = require('./controller/SessionController');
 
 
-routes.post('/users', UserController.store);
-routes.get('/users', UserController.index);
-routes.get('/user', UserController.show);
 
-routes.post('/materials', MaterialController.store);
-routes.get('/materials', MaterialController.index);
-routes.get('/material', MaterialController.show);
+//Don't change nothing above;
+routes
+.get('/session', SessionController.store)
 
-routes.post('/rents', RentController.store);
-routes.get('/rents', RentController.index);
-routes.get('/rent', RentController.show);
+.post('/users', UserController.store)
+.get('/users', UserController.index)
+.get('/user', UserController.show)
+
+.post('/materials', MaterialController.store)
+.get('/materials', MaterialController.index)
+.get('/material', MaterialController.show)
+
+.post('/rents', RentController.store)
+.get('/rents', RentController.index)
+.get('/rent', RentController.show);
 
 module.exports = routes;
