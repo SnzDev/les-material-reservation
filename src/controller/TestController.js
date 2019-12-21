@@ -2,10 +2,10 @@ const Rent = require('../model/Rent');
 
 module.exports = {
     async index(req,res){
-        const file = req.file.path;
-        console.log(file);
-
-        res.json({file});
+        const file = req.file.filename;
+        console.log("",file);
+        
+        res.json(process.env.APP_URL+"images/"+file);
     },
     async show(req,res){
         const response = await Rent.findAll({
